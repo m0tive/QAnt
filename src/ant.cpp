@@ -1,4 +1,5 @@
 #include "ant.h"
+#include <time.h>
 
 namespace QtGLWindow
 {

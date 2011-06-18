@@ -1,6 +1,7 @@
 QT += opengl \
        gui \
        core
+LIBS += -lglew32
 INCLUDEPATH += include/
         += ui
 OBJECTS_DIR = obj/

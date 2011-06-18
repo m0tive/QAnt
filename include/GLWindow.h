@@ -1,6 +1,7 @@
 #ifndef _GLWINDOW_H_
 #define _GLWINDOW_H_
 
+#include <gl/glew.h>
 #include <QtOpenGL>
 #include <QTimer>
 #include <stdint.h>

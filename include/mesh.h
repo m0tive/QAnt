@@ -1,6 +1,8 @@
 #ifndef _MESH_H_
 #define _MESH_H_
-#include <OpenGL/gl.h>
+
+#include <gl/glew.h>
+#include <QtOpenGL>
 #include <stdint.h>
 #include <vector>
 
