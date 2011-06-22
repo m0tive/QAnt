@@ -1,7 +1,7 @@
 QT += opengl \
        gui \
        core
-LIBS += -lglew32
+LIBS += -L"$$_PRO_FILE_PWD_/lib" -lglew32
 INCLUDEPATH += include/
         += ui
 OBJECTS_DIR = obj/

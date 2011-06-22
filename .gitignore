@@ -1,6 +1,9 @@
 obj
 bin
+lib
 Makefile
+*.Debug
+*.Release
 moc
 *.swp
 todo
