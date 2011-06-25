@@ -1,5 +1,9 @@
 #include "sceneManager.h"
 
+#include <iostream>
+
+#include "sceneObject.h"
+
 namespace QtGLWindow
 {
 //------------------------------------------------------------------------------

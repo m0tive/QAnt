@@ -1,8 +1,9 @@
 #ifndef _SCENEOBJECT_H_
 #define _SCENEOBJECT_H_
-#include "vector.h"
-#include "transform.h"
-#include "util.h"
+
+//#include "vector.h"
+//#include "transform.h"
+//#include "util.h"
 #include "sceneNode.h"
 namespace QtGLWindow
 {
