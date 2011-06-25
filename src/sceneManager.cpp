@@ -1,11 +1,13 @@
 #include "sceneManager.h"
+
 namespace QtGLWindow
 {
 //------------------------------------------------------------------------------
 SceneManager::SceneManager()
-    :m_root(0),
-     test(0)
+    : m_root(0)//,
+    // test(0)
 {
+#if 0
     std::cout<<"initializing sceneManager\n";
     //aggr,separ, align, wall
   //  m_pFlock = new Flock(500,0.2,0.3,0.3,0.2);
@@ -14,6 +16,7 @@ SceneManager::SceneManager()
     m_pFood = new SceneObject(Vector(10,0,10),0.5,kFood);
     m_pHome = new SceneObject(Vector(0,0,0),0.5,kHome);
     ptest = new Pheromone(Vector(0,0,0),ToHome);
+#endif
 }
 //------------------------------------------------------------------------------
 SceneManager::~SceneManager()
@@ -22,6 +25,7 @@ SceneManager::~SceneManager()
 //------------------------------------------------------------------------------
 void SceneManager::InitScene()
 {
+#if 0
 /*
     m_root.AddNext(m_pFlock->m_boidList[0].m_node);
     for(int i =0; i<m_pFlock->GetNum()-1; ++i)
@@ -42,11 +46,12 @@ void SceneManager::InitScene()
         m_pColony->m_antList[i]->m_node.AddNext(m_pColony->m_antList[i+1]->m_node);
     }
     //m_pColony->m_antList[num].m_node.AddNext(ptest->m_node);
-
+#endif
 }
 //------------------------------------------------------------------------------
 void SceneManager::UpdateScene()
 {
+#if 0
     m_pColony->Update(*m_pHome, *m_pFood);
 #if 1
     uint32_t num = m_pColony->m_antList.size()-1;
@@ -67,6 +72,7 @@ void SceneManager::UpdateScene()
     }
 #endif
    // m_pFlock->Update(50);
+#endif
 }
 //------------------------------------------------------------------------------
 }//end of namespace

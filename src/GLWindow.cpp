@@ -2,7 +2,10 @@
 
 namespace QtGLWindow{
 
-const static float PI  = 3.1415926;
+#ifndef PI
+#   define PI 3.1415926;
+#endif
+
 //------------------------------------------------------------------------------
 GLWindow::GLWindow( QWidget *_parent )
     : QGLWidget( _parent )
@@ -35,8 +38,8 @@ void GLWindow::initializeGL()
     glClearColor(0,0,0,1);
 
     glEnable(GL_DEPTH_TEST);
-#if 0
     m_scene.InitScene();
+#if 0
 
     pSelected = m_scene.m_root.m_pNext->m_pObject;
     m_obj.ParseFile("sphere.obj");
@@ -74,16 +77,14 @@ void GLWindow::paintGL()
         glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
     }
 
-#if 0
     m_scene.UpdateScene();
     RenderScene(m_scene);
-#endif
 }
 
-#if 0
 //------------------------------------------------------------------------------
 void GLWindow::RenderScene(const SceneManager& _scene)
 {
+#if 0
     const SceneNode* thisnode = &(_scene.m_root);
 
     while( thisnode->m_pNext !=NULL )
@@ -94,7 +95,9 @@ void GLWindow::RenderScene(const SceneManager& _scene)
         }
         thisnode = thisnode->m_pNext;
     }
+#endif
 }
+#if 0
 //------------------------------------------------------------------------------
 void GLWindow::Draw(SceneObject* _obj)
 {

@@ -10,4 +10,6 @@ todo
 *.tmp
 *.pro.user
 ui/*.h
-
+*.orig
+*.bak
+*~

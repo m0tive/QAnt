@@ -2,9 +2,10 @@
 #define _SCENEMANGER_H_
 
 #include "sceneNode.h"
-#include "sceneObject.h"
-#include "flock.h"
-#include "colony.h"
+//#include "sceneObject.h"
+//#include "flock.h"
+//#include "colony.h"
+
 namespace QtGLWindow
 {
 class SceneManager
@@ -17,6 +18,7 @@ class SceneManager
         void UpdateScene();
 
         SceneNode m_root;
+#if 0
         SceneObject* test;
         Flock* m_pFlock;
         Colony* m_pColony;
@@ -24,6 +26,7 @@ class SceneManager
         SceneObject* m_pFood;
         SceneObject* m_pHome;
         Pheromone* ptest;
+#endif
 };//end of class
 }//end of namespace
 #endif //end of define

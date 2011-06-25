@@ -19,11 +19,17 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/GLWindow.cpp \
+    src/sceneNode.cpp \
+    src/sceneObject.cpp \
+    src/sceneManager.cpp \
 
 HEADERS += \
     include/mainwindow.h \
     ui/ui_mainwindow.h \
     include/GLWindow.h \
+    include/sceneNode.h \
+    include/sceneObject.h \
+    include/sceneManager.h \
 
 FORMS += \
     ui/mainwindow.ui

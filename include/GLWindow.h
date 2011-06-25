@@ -6,8 +6,8 @@
 #include <QTimer>
 #include <stdint.h>
 
-#if 0
 #include "sceneManager.h"
+#if 0
 #include "transform.h"
 #include "objLoader.h"
 #include "camera.h"
@@ -44,10 +44,10 @@ class GLWindow : public QGLWidget
         void resizeGL( const uint32_t _w, const uint32_t _h );
         void paintGL();
     private:
-#if 0
         void RenderScene(const SceneManager& _scene);
-        void Draw(SceneObject* _obj);
+        //void Draw(SceneObject* _obj);
         SceneManager m_scene;
+#if 0
         ObjLoader m_obj;
         ObjLoader m_envObj;
         Camera* m_pCam;

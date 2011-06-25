@@ -1,12 +1,17 @@
 #include "sceneObject.h"
+
+#ifndef PI
 #define PI 3.1415926
+#endif
 
 namespace QtGLWindow
 {
 //------------------------------------------------------------------------------
-uint16_t SceneObject::uniqueColorId[3] = {0,0,0};
+//uint16_t SceneObject::uniqueColorId[3] = {0,0,0};
+
 //------------------------------------------------------------------------------
 SceneObject::SceneObject()
+#if 0
     : m_pos(0,0,0),
       m_node(this),
       m_bound(0.0),
@@ -21,10 +26,12 @@ SceneObject::SceneObject()
       m_accel(0,0,0),
       m_maxAccel(0),
       m_maxAngle(0)
+#endif
 {
-    GetColorId();
-    m_walkCounter=0;
+    //GetColorId();
+    //m_walkCounter=0;
 }
+#if 0
 //------------------------------------------------------------------------------
 SceneObject::SceneObject(
                             Vector _pos, 
@@ -49,10 +56,12 @@ SceneObject::SceneObject(
 {
     GetColorId();
 }
+#endif
 //------------------------------------------------------------------------------
 SceneObject::~SceneObject()
 {
 }
+#if 0
 //------------------------------------------------------------------------------
 void SceneObject::GetColorId()
 {
@@ -207,4 +216,5 @@ void SceneObject::RotateAxis()
     m_axisY = m_trans.m_rotate * Vector(0,1,0);
     m_axisZ = m_trans.m_rotate * Vector(0,0,1);
 }
+#endif
 }//end of namespace

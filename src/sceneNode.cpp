@@ -1,4 +1,7 @@
 #include "sceneNode.h"
+
+#include "sceneObject.h"
+
 namespace QtGLWindow{
 //------------------------------------------------------------------------------
 SceneNode::SceneNode()
@@ -6,8 +9,8 @@ SceneNode::SceneNode()
 }
 //------------------------------------------------------------------------------    
 SceneNode::SceneNode(SceneObject* _pObject)
-    : m_pNext(0),
-      m_pObject(_pObject)
+    : m_pNext(0)//,
+    //  m_pObject(_pObject)
 {
 }
 //------------------------------------------------------------------------------

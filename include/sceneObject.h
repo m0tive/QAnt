@@ -11,6 +11,7 @@ class SceneObject
     public:
         SceneObject();
         virtual ~SceneObject();
+#if 0
         SceneObject(
                      Vector _pos,
                      float _bound,
@@ -54,6 +55,7 @@ class SceneObject
         void GetColorId();
         uint16_t m_colorId[3];
         static uint16_t uniqueColorId[3];
+#endif
 };//end of class
 }//end of namespace
 #endif //end of define
