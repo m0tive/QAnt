@@ -15,71 +15,42 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="s_mainLayout">
-    <item row="0" column="0">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="1" column="1">
-     <widget class="QGroupBox" name="s_camTransGB">
+    <item row="2" column="1">
+     <widget class="QGroupBox" name="s_optGB">
       <property name="title">
-       <string>Camera local Transformation</string>
+       <string>Options</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout_3">
+      <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <widget class="QLabel" name="label_5">
+        <widget class="QCheckBox" name="m_wireframeCheck">
          <property name="text">
-          <string>Rotate</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Translate</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="m_pitch">
-         <property name="text">
-          <string>Pitch</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QPushButton" name="m_zoom">
-         <property name="text">
-          <string>Zoom in</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QPushButton" name="m_spin">
-         <property name="text">
-          <string>Spin</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QPushButton" name="m_roll">
-         <property name="text">
-          <string>Roll</string>
+          <string>Wireframe</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QPushButton" name="m_yaw">
+        <widget class="QComboBox" name="m_model">
+         <item>
+          <property name="text">
+           <string>Sphere</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Arrow</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Fish</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Yaw</string>
+          <string>Choose Model:</string>
          </property>
         </widget>
        </item>
@@ -151,47 +122,76 @@
       </layout>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QGroupBox" name="s_optGB">
+    <item row="1" column="1">
+     <widget class="QGroupBox" name="s_camTransGB">
       <property name="title">
-       <string>Options</string>
+       <string>Camera local Transformation</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
+      <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
-        <widget class="QCheckBox" name="m_wireframeCheck">
+        <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Wireframe</string>
+          <string>Rotate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Translate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="m_pitch">
+         <property name="text">
+          <string>Pitch</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QPushButton" name="m_zoom">
+         <property name="text">
+          <string>Zoom in</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QPushButton" name="m_spin">
+         <property name="text">
+          <string>Spin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QPushButton" name="m_roll">
+         <property name="text">
+          <string>Roll</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QComboBox" name="m_model">
-         <item>
-          <property name="text">
-           <string>Sphere</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Arrow</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Fish</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QPushButton" name="m_yaw">
          <property name="text">
-          <string>Choose Model:</string>
+          <string>Yaw</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
+    </item>
+    <item row="0" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
@@ -201,11 +201,11 @@
      <x>0</x>
      <y>0</y>
      <width>797</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>
  <connections/>

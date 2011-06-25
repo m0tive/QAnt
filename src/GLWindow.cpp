@@ -1,15 +1,16 @@
 #include "GLWindow.h"
+
 namespace QtGLWindow{
+
 const static float PI  = 3.1415926;
 //------------------------------------------------------------------------------
-GLWindow::GLWindow(
-                        QWidget *_parent
-                  )
-                   :QGLWidget( _parent )
+GLWindow::GLWindow( QWidget *_parent )
+    : QGLWidget( _parent )
 {
     setFocus();
     resize(_parent->size());
 
+#if 0
     m_framerate = 50;
     m_wireframe = false;
     m_timer = new QTimer(this);
@@ -17,19 +18,24 @@ GLWindow::GLWindow(
     m_spin = 0.0;
     connect( m_timer, SIGNAL(timeout()), this, SLOT(updateGL()));
     m_timer->start(m_framerate);
+#endif
 }
 //------------------------------------------------------------------------------
 GLWindow::~GLWindow()
 {
+#if 0
     if( m_timer !=0 )
         delete m_timer;
+#endif
 }
+
 //------------------------------------------------------------------------------
 void GLWindow::initializeGL()
 {
     glClearColor(0,0,0,1);
 
     glEnable(GL_DEPTH_TEST);
+#if 0
     m_scene.InitScene();
 
     pSelected = m_scene.m_root.m_pNext->m_pObject;
@@ -42,7 +48,9 @@ void GLWindow::initializeGL()
     m_envObj.m_pMesh->CreateVBO();
     //setModel(0);
     m_pCam->SetupCam();
+#endif
 }
+
 //------------------------------------------------------------------------------
 void GLWindow::resizeGL(
                             const uint32_t _w,
@@ -55,18 +63,24 @@ void GLWindow::resizeGL(
 void GLWindow::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+#if 0
     if( m_wireframe )
     {
         glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
     }
     else
+#endif
     {
         glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
     }
 
+#if 0
     m_scene.UpdateScene();
     RenderScene(m_scene);
+#endif
 }
+
+#if 0
 //------------------------------------------------------------------------------
 void GLWindow::RenderScene(const SceneManager& _scene)
 {
@@ -238,4 +252,6 @@ void GLWindow::setModel(int _index)
     m_obj.m_pMesh->UpdateVBO();
     updateGL();
 }
+#endif
+
 }//end of namespace

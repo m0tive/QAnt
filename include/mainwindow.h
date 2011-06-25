@@ -2,11 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <GLWindow.h>
-
-namespace Ui {
-    class MainWindow;
-}
+#include "ui_mainwindow.h"
+#include "GLWindow.h"
 
 class MainWindow : public QMainWindow
 {
@@ -17,7 +14,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *m_ui;
-    QtGLWindow::GLWindow *m_gl;
+    Ui::MainWindow m_ui;
+    QtGLWindow::GLWindow m_gl;
 };
 #endif // MAINWINDOW_H

@@ -5,20 +5,25 @@
 #include <QtOpenGL>
 #include <QTimer>
 #include <stdint.h>
+
+#if 0
 #include "sceneManager.h"
 #include "transform.h"
 #include "objLoader.h"
 #include "camera.h"
+#endif
 
-namespace QtGLWindow{
+namespace QtGLWindow
+{
+
 class GLWindow : public QGLWidget
 {
     Q_OBJECT
     public:
-        GLWindow(
-                    QWidget *_parent
-                );
+        explicit GLWindow(QWidget *_parent);
         ~GLWindow();
+
+#if 0
     public slots:
         void toggleWireframe(bool _mode);
         void setRotationX();
@@ -33,14 +38,13 @@ class GLWindow : public QGLWidget
         void setCamYaw();
         void setCamRoll();
         void setModel(int _index);
+#endif
     protected:
         void initializeGL();
-        void resizeGL(
-                        const uint32_t _w,
-                        const uint32_t _h
-                     );
+        void resizeGL( const uint32_t _w, const uint32_t _h );
         void paintGL();
     private:
+#if 0
         void RenderScene(const SceneManager& _scene);
         void Draw(SceneObject* _obj);
         SceneManager m_scene;
@@ -53,6 +57,7 @@ class GLWindow : public QGLWidget
         Transform m_trans;
         SceneObject* pSelected;
         float m_spin;
+#endif
 };//end of class
 }//end of namespace
 #endif //end of define
