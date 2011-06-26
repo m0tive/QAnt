@@ -7,11 +7,11 @@ LIBS += \
     -L"$$_PRO_FILE_PWD_/lib" \
     -lglew32
 
-OBJECTS_DIR = obj
-
 INCLUDEPATH += \
     include \
     ui
+
+OBJECTS_DIR = obj
 
 UI_HEADERS_DIR = ui
 
@@ -23,6 +23,8 @@ SOURCES += \
     src/sceneObject.cpp \
     src/vector.cpp \
     src/util.cpp \
+    src/transform.cpp \
+    src/matrix.cpp \
     src/sceneManager.cpp \
 
 HEADERS += \
@@ -33,6 +35,8 @@ HEADERS += \
     include/sceneObject.h \
     include/vector.h \
     include/util.h \
+    include/transform.h \
+    include/matrix.h \
     include/sceneManager.h \
 
 FORMS += \

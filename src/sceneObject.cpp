@@ -79,7 +79,6 @@ void SceneObject::GetColorId()
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const char _axis)
 {
-#if 0
     switch(_axis)
     {
         case 'X':
@@ -90,21 +89,17 @@ void SceneObject::Translate(const char _axis)
             m_trans.SetTranslate( m_axisZ * 0.1 );
     }
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const Vector& _dis)
 {
-#if 0
     m_pos+=_dis;
     m_trans.SetTranslate(_dis);
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Translate(const uint32_t _time)
 {
-#if 0
     float delta_t = _time*0.001 ;
     Vector pos = (m_vel*delta_t + m_accel * delta_t * delta_t /2);
     m_vel += ( m_accel * delta_t );
@@ -112,12 +107,10 @@ void SceneObject::Translate(const uint32_t _time)
     m_pos +=pos;
     m_trans.SetTranslate(pos);
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------
 void SceneObject::Rotate(const float _theta, const char _axis)
 {
-#if 0
     switch(_axis)
     {
         case 'X':
@@ -132,12 +125,10 @@ void SceneObject::Rotate(const float _theta, const char _axis)
     }
     RotateAxis();
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Rotate()
 {
-#if 0
     float theta = m_axisX.AngleBetween( m_force);
 
     Vector vector = (m_axisX.Cross( m_force)).Normalise();
@@ -149,7 +140,6 @@ void SceneObject::Rotate()
     m_trans.SetRotation( theta, vector);
     m_trans.ApplyTransform();
     RotateAxis();
-#endif
 }
 //------------------------------------------------------------------------------------
 bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32_t _rad)
@@ -168,7 +158,7 @@ bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32
 //------------------------------------------------------------------------------
 void SceneObject::Update()
 {
-    //m_trans.ApplyTransform();
+    m_trans.ApplyTransform();
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Move(const uint32_t _time)
@@ -217,10 +207,8 @@ void SceneObject::SetBound(const float _bound)
 //------------------------------------------------------------------------------
 void SceneObject::RotateAxis()
 {
-#if 0
     m_axisX = m_trans.m_rotate * Vector(1,0,0);
     m_axisY = m_trans.m_rotate * Vector(0,1,0);
     m_axisZ = m_trans.m_rotate * Vector(0,0,1);
-#endif
 }
 }//end of namespace

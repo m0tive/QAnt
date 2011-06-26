@@ -1,7 +1,8 @@
 #ifndef _MATRIX_H_
 #define _MATRIX_H_
-#include <string.h>
-#include <vector.h>
+
+#include "vector.h"
+
 namespace QtGLWindow
 {
 class Matrix
