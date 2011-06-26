@@ -7,11 +7,10 @@
 namespace QtGLWindow
 {
 //------------------------------------------------------------------------------
-//uint16_t SceneObject::uniqueColorId[3] = {0,0,0};
+uint16_t SceneObject::uniqueColorId[3] = {0,0,0};
 
 //------------------------------------------------------------------------------
 SceneObject::SceneObject()
-#if 0
     : m_pos(0,0,0),
       m_node(this),
       m_bound(0.0),
@@ -26,12 +25,10 @@ SceneObject::SceneObject()
       m_accel(0,0,0),
       m_maxAccel(0),
       m_maxAngle(0)
-#endif
 {
-    //GetColorId();
-    //m_walkCounter=0;
+    GetColorId();
+    m_walkCounter=0;
 }
-#if 0
 //------------------------------------------------------------------------------
 SceneObject::SceneObject(
                             Vector _pos, 
@@ -56,12 +53,10 @@ SceneObject::SceneObject(
 {
     GetColorId();
 }
-#endif
 //------------------------------------------------------------------------------
 SceneObject::~SceneObject()
 {
 }
-#if 0
 //------------------------------------------------------------------------------
 void SceneObject::GetColorId()
 {
@@ -84,6 +79,7 @@ void SceneObject::GetColorId()
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const char _axis)
 {
+#if 0
     switch(_axis)
     {
         case 'X':
@@ -93,18 +89,22 @@ void SceneObject::Translate(const char _axis)
         case 'Z':
             m_trans.SetTranslate( m_axisZ * 0.1 );
     }
-        m_trans.ApplyTransform();
+    m_trans.ApplyTransform();
+#endif
 }
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const Vector& _dis)
 {
+#if 0
     m_pos+=_dis;
     m_trans.SetTranslate(_dis);
     m_trans.ApplyTransform();
+#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Translate(const uint32_t _time)
 {
+#if 0
     float delta_t = _time*0.001 ;
     Vector pos = (m_vel*delta_t + m_accel * delta_t * delta_t /2);
     m_vel += ( m_accel * delta_t );
@@ -112,10 +112,12 @@ void SceneObject::Translate(const uint32_t _time)
     m_pos +=pos;
     m_trans.SetTranslate(pos);
     m_trans.ApplyTransform();
+#endif
 }
 //------------------------------------------------------------------------------
 void SceneObject::Rotate(const float _theta, const char _axis)
 {
+#if 0
     switch(_axis)
     {
         case 'X':
@@ -130,10 +132,12 @@ void SceneObject::Rotate(const float _theta, const char _axis)
     }
     RotateAxis();
     m_trans.ApplyTransform();
+#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Rotate()
 {
+#if 0
     float theta = m_axisX.AngleBetween( m_force);
 
     Vector vector = (m_axisX.Cross( m_force)).Normalise();
@@ -145,6 +149,7 @@ void SceneObject::Rotate()
     m_trans.SetRotation( theta, vector);
     m_trans.ApplyTransform();
     RotateAxis();
+#endif
 }
 //------------------------------------------------------------------------------------
 bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32_t _rad)
@@ -163,7 +168,7 @@ bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32
 //------------------------------------------------------------------------------
 void SceneObject::Update()
 {
-    m_trans.ApplyTransform();
+    //m_trans.ApplyTransform();
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Move(const uint32_t _time)
@@ -212,9 +217,10 @@ void SceneObject::SetBound(const float _bound)
 //------------------------------------------------------------------------------
 void SceneObject::RotateAxis()
 {
+#if 0
     m_axisX = m_trans.m_rotate * Vector(1,0,0);
     m_axisY = m_trans.m_rotate * Vector(0,1,0);
     m_axisZ = m_trans.m_rotate * Vector(0,0,1);
-}
 #endif
+}
 }//end of namespace
