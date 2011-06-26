@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
-#include "util.h"
 
 namespace QtGLWindow
 {

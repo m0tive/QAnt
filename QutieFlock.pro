@@ -21,6 +21,8 @@ SOURCES += \
     src/GLWindow.cpp \
     src/sceneNode.cpp \
     src/sceneObject.cpp \
+    src/vector.cpp \
+    src/util.cpp \
     src/sceneManager.cpp \
 
 HEADERS += \
@@ -28,6 +30,8 @@ HEADERS += \
     include/GLWindow.h \
     include/sceneNode.h \
     include/sceneObject.h \
+    include/vector.h \
+    include/util.h \
     include/sceneManager.h \
 
 FORMS += \

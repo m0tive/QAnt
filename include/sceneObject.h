@@ -3,9 +3,9 @@
 
 #include <stdint.h>
 
-//#include "vector.h"
+#include "vector.h"
 //#include "transform.h"
-//#include "util.h"
+#include "util.h"
 #include "sceneNode.h"
 
 namespace QtGLWindow
@@ -15,7 +15,6 @@ class SceneObject
     public:
         SceneObject();
         virtual ~SceneObject();
-#if 0
         SceneObject(
                      Vector _pos,
                      float _bound,
@@ -32,7 +31,7 @@ class SceneObject
         virtual void Rotate(const float theta, const char _axis);
         virtual void Translate(const char _axis);
         Vector m_pos;
-        Transform m_trans;
+        //Transform m_trans;
         SceneNode m_node;
 
     protected:
@@ -42,7 +41,6 @@ class SceneObject
         void Translate(const Vector& _dis);
         void RotateAxis();
         void Move(const uint32_t _time);
-#endif
 
         uint32_t m_walkCounter;
         float m_bound;
