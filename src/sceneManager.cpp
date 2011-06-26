@@ -11,12 +11,12 @@ SceneManager::SceneManager()
     : m_root(0)//,
     // test(0)
 {
-#if 0
     std::cout<<"initializing sceneManager\n";
     //aggr,separ, align, wall
   //  m_pFlock = new Flock(500,0.2,0.3,0.3,0.2);
-    m_pColony = new Colony;
+//    m_pColony = new Colony;
     m_pEnv = new SceneObject;
+#if 0
     m_pFood = new SceneObject(Vector(10,0,10),0.5,kFood);
     m_pHome = new SceneObject(Vector(0,0,0),0.5,kHome);
     ptest = new Pheromone(Vector(0,0,0),ToHome);

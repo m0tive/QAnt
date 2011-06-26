@@ -7,29 +7,27 @@
 namespace QtGLWindow
 {
 //------------------------------------------------------------------------------
-//uint16_t SceneObject::uniqueColorId[3] = {0,0,0};
+uint16_t SceneObject::uniqueColorId[3] = {0,0,0};
 
 //------------------------------------------------------------------------------
 SceneObject::SceneObject()
-#if 0
-    : m_pos(0,0,0),
-      m_node(this),
+    : //m_pos(0,0,0),
+      //m_node(this),
       m_bound(0.0),
-      m_type(kObject),
-      m_axisX(Vector(1,0,0)),
-      m_axisY(Vector(0,1,0)),
-      m_axisZ(Vector(0,0,1)),
-      m_vel(0,0,0),
+      //m_type(kObject),
+      //m_axisX(1,0,0),
+      //m_axisY(0,1,0),
+      //m_axisZ(0,0,1),
+      //m_vel(0,0,0),
       m_mass(0),
       m_friction(0),
-      m_force(0,0,0),
-      m_accel(0,0,0),
+      //m_force(0,0,0),
+      //m_accel(0,0,0),
       m_maxAccel(0),
       m_maxAngle(0)
-#endif
 {
-    //GetColorId();
-    //m_walkCounter=0;
+    GetColorId();
+    m_walkCounter=0;
 }
 #if 0
 //------------------------------------------------------------------------------
@@ -61,7 +59,6 @@ SceneObject::SceneObject(
 SceneObject::~SceneObject()
 {
 }
-#if 0
 //------------------------------------------------------------------------------
 void SceneObject::GetColorId()
 {
@@ -81,6 +78,7 @@ void SceneObject::GetColorId()
         }
     }
 }
+#if 0
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const char _axis)
 {

@@ -45,19 +45,19 @@ class GLWindow : public QGLWidget
         void paintGL();
     private:
         void RenderScene(const SceneManager& _scene);
-        //void Draw(SceneObject* _obj);
+        void Draw(SceneObject* _obj);
         SceneManager m_scene;
 #if 0
         ObjLoader m_obj;
         ObjLoader m_envObj;
         Camera* m_pCam;
+#endif
         uint32_t m_framerate;
         QTimer* m_timer;
         bool m_wireframe;
-        Transform m_trans;
+//        Transform m_trans;
         SceneObject* pSelected;
         float m_spin;
-#endif
 };//end of class
 }//end of namespace
 #endif //end of define

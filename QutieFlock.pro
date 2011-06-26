@@ -25,7 +25,6 @@ SOURCES += \
 
 HEADERS += \
     include/mainwindow.h \
-    ui/ui_mainwindow.h \
     include/GLWindow.h \
     include/sceneNode.h \
     include/sceneObject.h \

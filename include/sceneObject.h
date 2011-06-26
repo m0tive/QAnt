@@ -1,10 +1,13 @@
 #ifndef _SCENEOBJECT_H_
 #define _SCENEOBJECT_H_
 
+#include <stdint.h>
+
 //#include "vector.h"
 //#include "transform.h"
 //#include "util.h"
 #include "sceneNode.h"
+
 namespace QtGLWindow
 {
 class SceneObject
@@ -39,24 +42,28 @@ class SceneObject
         void Translate(const Vector& _dis);
         void RotateAxis();
         void Move(const uint32_t _time);
+#endif
 
         uint32_t m_walkCounter;
         float m_bound;
+#if 0
         DrawType m_type;
         Vector m_axisX;
         Vector m_axisY;
         Vector m_axisZ;
         Vector m_vel;
+#endif
         float m_mass;
         float m_friction;
+#if 0
         Vector m_force;
         Vector m_accel;
+#endif
         uint32_t m_maxAccel;
         float m_maxAngle;
         void GetColorId();
         uint16_t m_colorId[3];
         static uint16_t uniqueColorId[3];
-#endif
 };//end of class
 }//end of namespace
 #endif //end of define
