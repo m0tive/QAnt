@@ -7,8 +7,8 @@
 #include <stdint.h>
 
 #include "sceneManager.h"
-#if 0
 #include "transform.h"
+#if 0
 #include "objLoader.h"
 #include "camera.h"
 #endif
@@ -55,7 +55,7 @@ class GLWindow : public QGLWidget
         uint32_t m_framerate;
         QTimer m_timer;
         bool m_wireframe;
-//        Transform m_trans;
+        Transform m_trans;
         SceneObject* pSelected;
         float m_spin;
 };//end of class

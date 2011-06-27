@@ -79,7 +79,6 @@ void SceneObject::GetColorId()
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const char _axis)
 {
-#if 0
     switch(_axis)
     {
         case 'X':
@@ -90,16 +89,13 @@ void SceneObject::Translate(const char _axis)
             m_trans.SetTranslate( m_axisZ * 0.1 );
     }
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const Vector& _dis)
 {
     m_pos+=_dis;
-#if 0
     m_trans.SetTranslate(_dis);
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Translate(const uint32_t _time)
@@ -109,15 +105,12 @@ void SceneObject::Translate(const uint32_t _time)
     m_vel += ( m_accel * delta_t );
 
     m_pos +=pos;
-#if 0
     m_trans.SetTranslate(pos);
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------
 void SceneObject::Rotate(const float _theta, const char _axis)
 {
-#if 0
     switch(_axis)
     {
         case 'X':
@@ -132,7 +125,6 @@ void SceneObject::Rotate(const float _theta, const char _axis)
     }
     RotateAxis();
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Rotate()
@@ -145,32 +137,20 @@ void SceneObject::Rotate()
     {
         theta = m_maxAngle;
     }
-#if 0
     m_trans.SetRotation( theta, vector);
     m_trans.ApplyTransform();
-#endif
     RotateAxis();
 }
 //------------------------------------------------------------------------------------
 bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32_t _rad)
 {
     Vector relDis = _obj.m_pos - m_pos;
-    if ( (relDis.AngleBetween(this->m_axisX) < _angle) &&
-          (relDis.Length() < _rad) )
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return  (relDis.AngleBetween(this->m_axisX) < _angle) && (relDis.Length() < _rad);
 }
 //------------------------------------------------------------------------------
 void SceneObject::Update()
 {
-#if 0
     m_trans.ApplyTransform();
-#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Move(const uint32_t _time)

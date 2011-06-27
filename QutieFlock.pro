@@ -23,6 +23,7 @@ SOURCES += \
     src/sceneObject.cpp \
     src/vector.cpp \
     src/util.cpp \
+    src/transform.cpp \
     src/sceneManager.cpp \
 
 HEADERS += \
@@ -32,6 +33,7 @@ HEADERS += \
     include/sceneObject.h \
     include/vector.h \
     include/util.h \
+    include/transform.h \
     include/sceneManager.h \
 
 FORMS += \

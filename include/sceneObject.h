@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #include "vector.h"
-//#include "transform.h"
+#include "transform.h"
 #include "util.h"
 #include "sceneNode.h"
 
@@ -31,7 +31,7 @@ class SceneObject
         virtual void Rotate(const float theta, const char _axis);
         virtual void Translate(const char _axis);
         Vector m_pos;
-        //Transform m_trans;
+        Transform m_trans;
         SceneNode m_node;
 
     protected:
