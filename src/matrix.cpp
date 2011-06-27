@@ -1,5 +1,6 @@
 #include "matrix.h"
 #include <stdint.h>
+#include <string.h>
 
 namespace QtGLWindow
 {
