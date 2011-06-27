@@ -4,13 +4,17 @@ namespace QtGLWindow
 {
 //------------------------------------------------------------------------------
 ObjLoader::ObjLoader()
+#if 0
     :m_pMesh( new Mesh() )
+#endif
 {
 }
 //------------------------------------------------------------------------------
 ObjLoader::~ObjLoader()
 {
+#if 0
     delete m_pMesh;
+#endif
 }
 //------------------------------------------------------------------------------
 void ObjLoader::ParseFile(std::string _Filename)
@@ -129,6 +133,7 @@ void ObjLoader::ParseFace(std::vector<std::string>::iterator _begin, uint32_t _v
 //------------------------------------------------------------------------------
 void ObjLoader::Check()
 {
+#if 0
     for(uint32_t i=0;i<m_pMesh->m_verSize;++i)
     {
         std::cout<<m_vertexBuffer[i]<<" "<<i<<std::endl;
@@ -137,14 +142,16 @@ void ObjLoader::Check()
     {
         std::cout<<m_faceBuffer[i]<<" "<<i<<std::endl;
     }
-
+#endif
 }
 //------------------------------------------------------------------------------
 void ObjLoader::Load()
 {
+#if 0
     m_pMesh->CreateDataArray( m_vertexBuffer, m_textureBuffer, m_faceBuffer);
-    m_vertexBuffer.erase(m_vertexBuffer.begin(),m_vertexBuffer.end());
-    m_textureBuffer.erase(m_textureBuffer.begin(),m_textureBuffer.end());
-    m_faceBuffer.erase(m_faceBuffer.begin(),m_faceBuffer.end());
+#endif
+    m_vertexBuffer.clear();
+    m_textureBuffer.clear();
+    m_faceBuffer.clear();
 }
 }//end of namespace

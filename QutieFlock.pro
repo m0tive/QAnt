@@ -26,6 +26,7 @@ SOURCES += \
     src/transform.cpp \
     src/matrix.cpp \
     src/sceneManager.cpp \
+    src/objLoader.cpp \
 
 HEADERS += \
     include/mainwindow.h \
@@ -37,6 +38,7 @@ HEADERS += \
     include/transform.h \
     include/matrix.h \
     include/sceneManager.h \
+    include/objLoader.h \
 
 FORMS += \
     ui/mainwindow.ui

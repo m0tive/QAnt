@@ -7,7 +7,10 @@
 #include <fstream>
 #include <iterator>
 
-#include "mesh.h"
+#include <gl/glew.h>
+#include <QtOpenGL>
+
+//#include "mesh.h"
 #include "util.h"
 
 namespace QtGLWindow
@@ -50,7 +53,9 @@ class ObjLoader
         std::vector<GLfloat> m_textureBuffer;
         ///array of faces from file
         std::vector<GLubyte> m_faceBuffer;
+#if 0
         Mesh* m_pMesh;
+#endif
 };//end of class
 }//end of namespace
 #endif //end of define
