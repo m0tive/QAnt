@@ -199,10 +199,8 @@ void SceneObject::SetBound(const float _bound)
 //------------------------------------------------------------------------------
 void SceneObject::RotateAxis()
 {
-#if 0
     m_axisX = m_trans.m_rotate * Vector(1,0,0);
     m_axisY = m_trans.m_rotate * Vector(0,1,0);
     m_axisZ = m_trans.m_rotate * Vector(0,0,1);
-#endif
 }
 }//end of namespace

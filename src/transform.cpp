@@ -12,18 +12,15 @@ Transform::~Transform()
 //------------------------------------------------------------------------------
 void Transform::SetTranslate(Vector _pos)
 {
-#if 0
     Matrix translate;
     translate.m_mat[12] = _pos.GetX();
     translate.m_mat[13] = _pos.GetY();
     translate.m_mat[14] = _pos.GetZ();
     m_translate = translate * m_translate;
-#endif
 }
 //------------------------------------------------------------------------------
 void Transform::SetRotation(float _theta, Vector _v )
 {
-#if 0
     float halfsin = sin(_theta/2);
     float x= halfsin*_v.GetX();
     float y= halfsin*_v.GetY();
@@ -50,13 +47,10 @@ void Transform::SetRotation(float _theta, Vector _v )
     quat.m22 = 1-2*(xx+yy);
 
     m_rotate = quat * m_rotate;
-#endif
 }
 //------------------------------------------------------------------------------
 void Transform::ApplyTransform()
 {
-#if 0
     m_transform = m_translate * m_rotate;
-#endif
 }
 }//end of namespace
