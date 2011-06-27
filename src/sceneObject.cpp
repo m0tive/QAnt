@@ -1,7 +1,7 @@
 #include "sceneObject.h"
 
-#ifndef PI
-#   define PI 3.1415926
+#ifndef M_PI
+#   define M_PI 3.1415926
 #endif
 
 namespace QtGLWindow
@@ -14,15 +14,15 @@ SceneObject::SceneObject()
     : m_pos(0,0,0),
       m_node(this),
       m_bound(0.0),
-      //m_type(kObject),
-      //m_axisX(1,0,0),
-      //m_axisY(0,1,0),
-      //m_axisZ(0,0,1),
-      //m_vel(0,0,0),
+      m_type(kObject),
+      m_axisX(1,0,0),
+      m_axisY(0,1,0),
+      m_axisZ(0,0,1),
+      m_vel(0,0,0),
       m_mass(0),
       m_friction(0),
-      //m_force(0,0,0),
-      //m_accel(0,0,0),
+      m_force(0,0,0),
+      m_accel(0,0,0),
       m_maxAccel(0),
       m_maxAngle(0)
 {
@@ -38,15 +38,15 @@ SceneObject::SceneObject(
     : m_pos(_pos),
       m_node(this),
       m_bound(_bound),
-      //m_type(_type),
-      //m_axisX(Vector(1,0,0)),
-      //m_axisY(Vector(0,1,0)),
-      //m_axisZ(Vector(0,0,1)),
-      //m_vel(0,0,0),
+      m_type(_type),
+      m_axisX(1,0,0),
+      m_axisY(0,1,0),
+      m_axisZ(0,0,1),
+      m_vel(0,0,0),
       m_mass(0),
       m_friction(0),
-      //m_force(0,0,0),
-      //m_accel(0,0,0),
+      m_force(0,0,0),
+      m_accel(0,0,0),
       m_maxAccel(0),
       m_maxAngle(0)
 
@@ -95,8 +95,8 @@ void SceneObject::Translate(const char _axis)
 //------------------------------------------------------------------------------
 void SceneObject::Translate(const Vector& _dis)
 {
-#if 0
     m_pos+=_dis;
+#if 0
     m_trans.SetTranslate(_dis);
     m_trans.ApplyTransform();
 #endif
@@ -104,12 +104,12 @@ void SceneObject::Translate(const Vector& _dis)
 //------------------------------------------------------------------------------------
 void SceneObject::Translate(const uint32_t _time)
 {
-#if 0
     float delta_t = _time*0.001 ;
-    Vector pos = (m_vel*delta_t + m_accel * delta_t * delta_t /2);
+    Vector pos = (m_vel*delta_t + m_accel * delta_t * delta_t /2.0f);
     m_vel += ( m_accel * delta_t );
 
     m_pos +=pos;
+#if 0
     m_trans.SetTranslate(pos);
     m_trans.ApplyTransform();
 #endif
@@ -121,13 +121,13 @@ void SceneObject::Rotate(const float _theta, const char _axis)
     switch(_axis)
     {
         case 'X':
-            m_trans.SetRotation(_theta*PI/180, m_axisX);
+            m_trans.SetRotation(_theta*M_PI/180.0f, m_axisX);
             break;
         case 'Y':
-            m_trans.SetRotation(_theta*PI/180, m_axisY);
+            m_trans.SetRotation(_theta*M_PI/180.0f, m_axisY);
             break;
         case 'Z':
-            m_trans.SetRotation(_theta*PI/180, m_axisZ);
+            m_trans.SetRotation(_theta*M_PI/180.0f, m_axisZ);
             break;
     }
     RotateAxis();
@@ -137,7 +137,6 @@ void SceneObject::Rotate(const float _theta, const char _axis)
 //------------------------------------------------------------------------------------
 void SceneObject::Rotate()
 {
-#if 0
     float theta = m_axisX.AngleBetween( m_force);
 
     Vector vector = (m_axisX.Cross( m_force)).Normalise();
@@ -146,15 +145,15 @@ void SceneObject::Rotate()
     {
         theta = m_maxAngle;
     }
+#if 0
     m_trans.SetRotation( theta, vector);
     m_trans.ApplyTransform();
-    RotateAxis();
 #endif
+    RotateAxis();
 }
 //------------------------------------------------------------------------------------
 bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32_t _rad)
 {
-#if 0
     Vector relDis = _obj.m_pos - m_pos;
     if ( (relDis.AngleBetween(this->m_axisX) < _angle) &&
           (relDis.Length() < _rad) )
@@ -162,7 +161,6 @@ bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32
         return true;
     }
     else
-#endif
     {
         return false;
     }
@@ -170,12 +168,13 @@ bool SceneObject::CheckNeighbor(const SceneObject& _obj, uint32_t _angle, uint32
 //------------------------------------------------------------------------------
 void SceneObject::Update()
 {
-    //m_trans.ApplyTransform();
+#if 0
+    m_trans.ApplyTransform();
+#endif
 }
 //------------------------------------------------------------------------------------
 void SceneObject::Move(const uint32_t _time)
 {
-#if 0
     Rotate();
     float scalar = m_force.Length();
 
@@ -186,12 +185,11 @@ void SceneObject::Move(const uint32_t _time)
     m_force =m_axisX * scalar * m_mass;
     m_accel = (m_force -m_vel*m_friction) / m_mass;
     Translate(_time);
-#endif
 }
 //------------------------------------------------------------------------------
 uint32_t SceneObject::GetType() const
 {
-    return 0;//m_type;
+    return m_type;
 }
 //------------------------------------------------------------------------------
 float SceneObject::GetBound() const

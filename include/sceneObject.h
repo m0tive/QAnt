@@ -44,19 +44,15 @@ class SceneObject
 
         uint32_t m_walkCounter;
         float m_bound;
-#if 0
         DrawType m_type;
         Vector m_axisX;
         Vector m_axisY;
         Vector m_axisZ;
         Vector m_vel;
-#endif
         float m_mass;
         float m_friction;
-#if 0
         Vector m_force;
         Vector m_accel;
-#endif
         uint32_t m_maxAccel;
         float m_maxAngle;
         void GetColorId();

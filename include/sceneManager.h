@@ -17,9 +17,9 @@ class SceneManager
 
         void InitScene();
         void UpdateScene();
+        SceneNode m_root;
 
     protected:
-        SceneNode m_root;
         SceneObject* test;
         //Flock* m_pFlock;
         //Colony* m_pColony;

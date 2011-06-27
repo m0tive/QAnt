@@ -23,7 +23,6 @@ class GLWindow : public QGLWidget
         explicit GLWindow(QWidget *_parent);
         ~GLWindow();
 
-#if 0
     public slots:
         void toggleWireframe(bool _mode);
         void setRotationX();
@@ -32,6 +31,7 @@ class GLWindow : public QGLWidget
         void setTranslationX();
         void setTranslationY();
         void setTranslationZ();
+#if 0
         void setZoom();
         void setSpin();
         void setCamPitch();
@@ -53,7 +53,7 @@ class GLWindow : public QGLWidget
         Camera* m_pCam;
 #endif
         uint32_t m_framerate;
-        QTimer* m_timer;
+        QTimer m_timer;
         bool m_wireframe;
 //        Transform m_trans;
         SceneObject* pSelected;

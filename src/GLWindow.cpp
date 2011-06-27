@@ -1,35 +1,33 @@
 #include "GLWindow.h"
 
+#include "SceneObject.h"
+
 namespace QtGLWindow{
 
-#ifndef PI
-#   define PI 3.1415926;
+#ifndef M_PI
+#   define M_PI 3.1415926;
 #endif
 
 //------------------------------------------------------------------------------
 GLWindow::GLWindow( QWidget *_parent )
-    : QGLWidget( _parent )
+    : QGLWidget( _parent ),
+      m_framerate(50),
+      m_timer(this),
+      m_wireframe(false),
+      pSelected(0),
+      m_spin(0.0)
 {
     setFocus();
     resize(_parent->size());
 
-#if 0
-    m_framerate = 50;
-    m_wireframe = false;
-    m_timer = new QTimer(this);
-    m_pCam = new Camera;
-    m_spin = 0.0;
-    connect( m_timer, SIGNAL(timeout()), this, SLOT(updateGL()));
-    m_timer->start(m_framerate);
-#endif
+    //m_pCam = new Camera;
+
+    connect( &m_timer, SIGNAL(timeout()), this, SLOT(updateGL()));
+    m_timer.start(m_framerate);
 }
 //------------------------------------------------------------------------------
 GLWindow::~GLWindow()
 {
-#if 0
-    if( m_timer !=0 )
-        delete m_timer;
-#endif
 }
 
 //------------------------------------------------------------------------------
@@ -39,9 +37,12 @@ void GLWindow::initializeGL()
 
     glEnable(GL_DEPTH_TEST);
     m_scene.InitScene();
-#if 0
 
-    pSelected = m_scene.m_root.m_pNext->m_pObject;
+    if (m_scene.m_root.m_pNext)
+    {
+        pSelected = m_scene.m_root.m_pNext->m_pObject;
+    }
+#if 0
     m_obj.ParseFile("sphere.obj");
     m_obj.Load();
     m_obj.m_pMesh->CreateVBO();
@@ -66,16 +67,7 @@ void GLWindow::resizeGL(
 void GLWindow::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-#if 0
-    if( m_wireframe )
-    {
-        glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-    }
-    else
-#endif
-    {
-        glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-    }
+    glPolygonMode(GL_FRONT_AND_BACK, m_wireframe ? GL_LINE : GL_FILL);
 
     m_scene.UpdateScene();
     RenderScene(m_scene);
@@ -84,7 +76,6 @@ void GLWindow::paintGL()
 //------------------------------------------------------------------------------
 void GLWindow::RenderScene(const SceneManager& _scene)
 {
-#if 0
     const SceneNode* thisnode = &(_scene.m_root);
 
     while( thisnode->m_pNext !=NULL )
@@ -95,12 +86,11 @@ void GLWindow::RenderScene(const SceneManager& _scene)
         }
         thisnode = thisnode->m_pNext;
     }
-#endif
 }
-#if 0
 //------------------------------------------------------------------------------
 void GLWindow::Draw(SceneObject* _obj)
 {
+#if 0
     glPushMatrix();
         glRotatef(m_spin, 0,1,0);
         if(_obj->GetType() == kObject)
@@ -165,6 +155,7 @@ void GLWindow::Draw(SceneObject* _obj)
 
 
     glPopMatrix();
+#endif
 }
 //------------------------------------------------------------------------------
 void GLWindow::toggleWireframe(bool _mode)
@@ -175,39 +166,58 @@ void GLWindow::toggleWireframe(bool _mode)
 //------------------------------------------------------------------------------
 void GLWindow::setRotationX()
 {
-    pSelected->Rotate(1*PI/180,'X');
-    updateGL();
+    if (pSelected)
+    {
+        pSelected->Rotate(1.0f*M_PI/180.0f,'X');
+        updateGL();
+    }
 }
 //------------------------------------------------------------------------------
 void GLWindow::setRotationY()
 {
-    pSelected->Rotate(1*PI/180,'Y');
-    updateGL();
+    if (pSelected)
+    {
+        pSelected->Rotate(1.0f*M_PI/180.0f,'Y');
+        updateGL();
+    }
 }
 //------------------------------------------------------------------------------
 void GLWindow::setRotationZ()
 {
-    pSelected->Rotate(1*PI/180,'Z');
-    updateGL();
+    if (pSelected)
+    {
+        pSelected->Rotate(1.0f*M_PI/180.0f,'Z');
+        updateGL();
+    }
 }
 //------------------------------------------------------------------------------
 void GLWindow::setTranslationX()
 {
-    pSelected->Translate('X');
-    updateGL();
+    if (pSelected)
+    {
+        pSelected->Translate('X');
+        updateGL();
+    }
 }
 //------------------------------------------------------------------------------
 void GLWindow::setTranslationY()
 {
-    pSelected->Translate('Y');
-    updateGL();
+    if (pSelected)
+    {
+        pSelected->Translate('Y');
+        updateGL();
+    }
 }
 //------------------------------------------------------------------------------
 void GLWindow::setTranslationZ()
 {
-    pSelected->Translate('Z');
-    updateGL();
+    if (pSelected)
+    {
+        pSelected->Translate('Z');
+        updateGL();
+    }
 }
+#if 0
 //------------------------------------------------------------------------------
 void GLWindow::setCamPitch()
 {
