@@ -37,8 +37,8 @@ class GLWindow : public QGLWidget
         void setCamPitch();
         void setCamYaw();
         void setCamRoll();
-        void setModel(int _index);
 #endif
+        void setModel(int _index);
     protected:
         void initializeGL();
         void resizeGL( const uint32_t _w, const uint32_t _h );

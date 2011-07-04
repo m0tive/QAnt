@@ -33,6 +33,8 @@ GLWindow::~GLWindow()
 //------------------------------------------------------------------------------
 void GLWindow::initializeGL()
 {
+    glewInit();
+
     glClearColor(0,0,0,1);
 
     glEnable(GL_DEPTH_TEST);
@@ -44,13 +46,13 @@ void GLWindow::initializeGL()
     }
     m_obj.ParseFile("sphere.obj");
     m_obj.Load();
-#if 0
     m_obj.m_pMesh->CreateVBO();
 
     m_envObj.ParseFile("plane.obj");
     m_envObj.Load();
     m_envObj.m_pMesh->CreateVBO();
     //setModel(0);
+#if 0
     m_pCam->SetupCam();
 #endif
 }
@@ -90,7 +92,6 @@ void GLWindow::RenderScene(const SceneManager& _scene)
 //------------------------------------------------------------------------------
 void GLWindow::Draw(SceneObject* _obj)
 {
-#if 0
     glPushMatrix();
         glRotatef(m_spin, 0,1,0);
         if(_obj->GetType() == kObject)
@@ -118,11 +119,13 @@ void GLWindow::Draw(SceneObject* _obj)
         {
             glPushMatrix();
                 glPushAttrib(GL_ENABLE_BIT | GL_POLYGON_BIT | GL_CURRENT_BIT);
+#if 0
                 if ( (static_cast<Pheromone*>(_obj))->m_phrmType == ToHome)
                 {
                     glColor3f(0,0,1);
                 }
                 else
+#endif
                 {
                     glColor3f(0,1,0);
                 }
@@ -155,7 +158,6 @@ void GLWindow::Draw(SceneObject* _obj)
 
 
     glPopMatrix();
-#endif
 }
 //------------------------------------------------------------------------------
 void GLWindow::toggleWireframe(bool _mode)
@@ -247,6 +249,7 @@ void GLWindow::setSpin()
     m_spin +=1;
     updateGL();
 }
+#endif
 void GLWindow::setModel(int _index)
 {
     switch(_index)
@@ -265,6 +268,5 @@ void GLWindow::setModel(int _index)
     m_obj.m_pMesh->UpdateVBO();
     updateGL();
 }
-#endif
 
 }//end of namespace
