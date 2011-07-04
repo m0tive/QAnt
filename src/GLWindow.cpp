@@ -42,9 +42,9 @@ void GLWindow::initializeGL()
     {
         pSelected = m_scene.m_root.m_pNext->m_pObject;
     }
-#if 0
     m_obj.ParseFile("sphere.obj");
     m_obj.Load();
+#if 0
     m_obj.m_pMesh->CreateVBO();
 
     m_envObj.ParseFile("plane.obj");

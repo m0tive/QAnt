@@ -27,7 +27,6 @@ SceneManager::~SceneManager()
 //------------------------------------------------------------------------------
 void SceneManager::InitScene()
 {
-#if 0
 /*
     m_root.AddNext(m_pFlock->m_boidList[0].m_node);
     for(int i =0; i<m_pFlock->GetNum()-1; ++i)
@@ -38,6 +37,7 @@ void SceneManager::InitScene()
     m_root.AddNext(m_pEnv->m_node);
     m_pEnv->m_node.AddNext(m_pFood->m_node);
     m_pFood->m_node.AddNext(m_pHome->m_node);
+#if 0
     m_pHome->m_node.AddNext(m_pColony->m_antList[0]->m_node);
 
 

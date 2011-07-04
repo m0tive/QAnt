@@ -8,8 +8,8 @@
 
 #include "sceneManager.h"
 #include "transform.h"
-#if 0
 #include "objLoader.h"
+#if 0
 #include "camera.h"
 #endif
 
@@ -47,9 +47,9 @@ class GLWindow : public QGLWidget
         void RenderScene(const SceneManager& _scene);
         void Draw(SceneObject* _obj);
         SceneManager m_scene;
-#if 0
         ObjLoader m_obj;
         ObjLoader m_envObj;
+#if 0
         Camera* m_pCam;
 #endif
         uint32_t m_framerate;
