@@ -9,9 +9,7 @@
 #include "sceneManager.h"
 #include "transform.h"
 #include "objLoader.h"
-#if 0
 #include "camera.h"
-#endif
 
 namespace QtGLWindow
 {
@@ -31,13 +29,11 @@ class GLWindow : public QGLWidget
         void setTranslationX();
         void setTranslationY();
         void setTranslationZ();
-#if 0
         void setZoom();
         void setSpin();
         void setCamPitch();
         void setCamYaw();
         void setCamRoll();
-#endif
         void setModel(int _index);
     protected:
         void initializeGL();
@@ -49,9 +45,7 @@ class GLWindow : public QGLWidget
         SceneManager m_scene;
         ObjLoader m_obj;
         ObjLoader m_envObj;
-#if 0
-        Camera* m_pCam;
-#endif
+        Camera m_pCam;
         uint32_t m_framerate;
         QTimer m_timer;
         bool m_wireframe;

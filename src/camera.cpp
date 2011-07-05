@@ -1,5 +1,7 @@
 #include "camera.h"
+
 #include <stdio.h>
+
 namespace QtGLWindow
 {
 //------------------------------------------------------------------------------

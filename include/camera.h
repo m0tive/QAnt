@@ -1,12 +1,11 @@
 #ifndef _CAMERA_H_
 #define _CAMERA_H_
+
+#include <gl/glew.h>
 #include <QtOpenGL>
-#if 0
-#include <OpenGL/openGL.h>
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#endif
+
 #include <stdint.h>
+
 #include "vector.h"
 #include "sceneObject.h"
 

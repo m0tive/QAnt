@@ -1,6 +1,6 @@
 #include "GLWindow.h"
 
-#include "SceneObject.h"
+#include "sceneObject.h"
 
 namespace QtGLWindow{
 
@@ -19,8 +19,6 @@ GLWindow::GLWindow( QWidget *_parent )
 {
     setFocus();
     resize(_parent->size());
-
-    //m_pCam = new Camera;
 
     connect( &m_timer, SIGNAL(timeout()), this, SLOT(updateGL()));
     m_timer.start(m_framerate);
@@ -52,9 +50,7 @@ void GLWindow::initializeGL()
     m_envObj.Load();
     m_envObj.m_pMesh->CreateVBO();
     //setModel(0);
-#if 0
-    m_pCam->SetupCam();
-#endif
+    m_pCam.SetupCam();
 }
 
 //------------------------------------------------------------------------------
@@ -219,29 +215,28 @@ void GLWindow::setTranslationZ()
         updateGL();
     }
 }
-#if 0
 //------------------------------------------------------------------------------
 void GLWindow::setCamPitch()
 {
-    this->m_pCam->Pitch();
+    this->m_pCam.Pitch();
     updateGL();
 }
 void GLWindow::setCamYaw()
 {
-    this->m_pCam->Yaw();
+    this->m_pCam.Yaw();
     updateGL();
 }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 void GLWindow::setCamRoll()
 {
-    this->m_pCam->Roll();
+    this->m_pCam.Roll();
     updateGL();
 }
 //------------------------------------------------------------------------------
 void GLWindow::setZoom()
 {
-    m_pCam->Zoom();
+    m_pCam.Zoom();
     updateGL();
 }
 void GLWindow::setSpin()
@@ -249,7 +244,6 @@ void GLWindow::setSpin()
     m_spin +=1;
     updateGL();
 }
-#endif
 void GLWindow::setModel(int _index)
 {
     switch(_index)
